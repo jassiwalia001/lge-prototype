@@ -1,0 +1,12 @@
+<div class="list-box">
+  <div *ngFor="let item of list; index as i;" class="card">
+    <div class="title"><div>{{item.name}}</div> <div class="car-count">{{item.users?.length || 0}} cars</div></div>
+    <div class="usage">{{item.usage}}<span class="units"> KWH</span></div>
+    <ul class="description-list">
+      <li>Charge per car {{item.usage/(item.users?.length || 1)}} KWH</li>
+      <li>ESS mode {{item.essMode ? 'activated' : 'not activated'}} </li>
+    </ul>
+    <button class="join-button" mat-raised-button (click)="joinEV(item)" [disabled]="!item.status || item.maxUsers <= item.users?.length">Join EV</button>
+  </div>
+  
+</div>

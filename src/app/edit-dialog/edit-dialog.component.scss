@@ -1,0 +1,21 @@
+.slider-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  mat-slider {
+    width: 100%;
+  }
+
+}
+
+.slide-toggle-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+mat-form-field {
+  width: 100%;
+}

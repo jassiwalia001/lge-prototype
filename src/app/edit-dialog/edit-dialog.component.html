@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>Edit Energy Usage</h2>
+
+<mat-dialog-content>
+  <!-- Energy Usage Form -->
+  <form [formGroup]="form">
+    <div>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Max Car count </mat-label>
+        <input matInput formControlName="maxUsers" type="number" max="100" min="0">
+      </mat-form-field>
+    </div>
+
+
+    <div class="slide-toggle-box">
+      <mat-label>Status </mat-label>
+      <mat-slide-toggle formControlName="status"></mat-slide-toggle>
+    </div>
+
+    <div class="slide-toggle-box">
+      <mat-label>ESS Mode </mat-label>
+      <mat-slide-toggle formControlName="essMode"></mat-slide-toggle>
+    </div>
+
+    <div>
+      <mat-label>Control Charging Speed</mat-label>
+      <div class="slider-box">
+        <mat-slider min="1" max="250" step="1" showTickMarks discrete [displayWith]="formatLabel">
+          <input matSliderThumb formControlName="usage" #slider>
+        </mat-slider>
+        <span>{{slider.value}}</span>
+      </div>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>

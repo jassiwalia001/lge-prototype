@@ -1,0 +1,17 @@
+<div class="dashboard-container">
+  <div class="header">
+    <h2>Energy Management System</h2>
+    <div class="actions">
+
+      <button *ngIf="form.get('userType')?.value === 'admin'" mat-raised-button color="primary" (click)="openAddDialog()">Add New EV</button>
+      <form [formGroup]="form">
+        <mat-radio-group formControlName="userType" aria-label="Select an option">
+          <mat-radio-button value="admin">Admin</mat-radio-button>
+        <mat-radio-button value="user">User</mat-radio-button>
+        </mat-radio-group>
+      </form>
+    </div>
+  </div>
+  <app-energy-usage-table *ngIf="form.get('userType')?.value === 'admin'"></app-energy-usage-table>
+  <app-use-dashboard></app-use-dashboard>
+</div>
